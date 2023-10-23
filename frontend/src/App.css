@@ -74,7 +74,7 @@
   border: 2px solid #007bff;
   border-radius: 50%;
   cursor: pointer;
-  transition: background 0.5s ease, border 0.5s ease;
+  transition: 0.5s ease, border 0.5s ease !important;
 }
 /* Add hover effect to the microphone button */
 .action-btn.microphone:hover {
@@ -93,42 +93,44 @@
 }
 
 /* Style the "End Call" button */
-.end-btn {
-  background: red;
-  border-color: red;
+.call-btn {
+  background: green;
+  border-color: green;
   position: relative; /* Allow for pseudo-element */
+  transform: rotate(132deg);
+  transition: transform 1s;
 }
 
 /* Add a pseudo-element for the glowing effect and rotation */
-.end-btn::before {
+.call-btn::before {
   content: '';
   position: absolute;
   top: -5px; /* Adjust the positioning to create the glowing effect outside the button */
   left: -5px;
   right: -5px;
   bottom: -5px;
-  border: 2px solid rgba(255, 0, 0, 0.6); /* Red border to create the glowing effect */
+  border: 2px solid rgba(0, 255, 21, 0.6); /* Red border to create the glowing effect */
   border-radius: 50%;
-  animation: pulseGlow 2s linear infinite, pulseGlow 10s linear infinite; /* Add pulsating glow and rotation animations */
+  animation: callpulseGlow 2s linear infinite, callpulseGlow 10s linear infinite; /* Add pulsating glow and rotation animations */
 }
 
 /* Style the action buttons on hover */
-.end-btn:hover {
-  background: rgba(255, 0, 0, 0.6);
+.call-btn:hover {
+  background: rgba(0, 255, 21, 0.6);
 }
 
 /* Keyframes for the pulsating glow effect */
-@keyframes pulseGlow {
+@keyframes callpulseGlow {
   0% {
-    box-shadow: 0 0 40px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.6);
+    box-shadow: 0 0 40px rgba(0, 202, 17, 0.6), 0 0 40px rgba(0, 202, 17, 0.6);
     transform: rotate(0deg);
     z-index: 0;
   }
   50% {
-    box-shadow: 0 0 50px rgba(255, 0, 0, 0.8), 0 0 50px rgba(255, 0, 0, 0.8);
+    box-shadow: 0 0 50px rgba(0, 202, 17, 0.6), 0 0 50px rgba(0, 202, 17, 0.6);
   }
   100% {
-    box-shadow: 0 0 40px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.6);
+    box-shadow: 0 0 40px rgba(0, 202, 17, 0.6), 0 0 40px rgba(0, 202, 17, 0.6);
     transform: rotate(360deg);
     z-index: 0;
   }
@@ -145,5 +147,47 @@
   100% {
     box-shadow: 0 0 90px rgba(0, 123, 255, 0.6), 0 0 90px rgba(0, 123, 255, 0.6);
     
+  }
+}
+.end-btn {
+  background: red;
+  border-color: red;
+  position: relative; /* Allow for pseudo-element */
+  transform: rotate(0deg); /* Change the rotation to 0° for end-btn */
+  transition: transform 1s; /* Add transition for rotation */
+}
+
+/* Add a pseudo-element for the glowing effect and rotation */
+.end-btn::before {
+  content: '';
+  position: absolute;
+  top: -5px; /* Adjust the positioning to create the glowing effect outside the button */
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid rgba(255, 0, 0, 0.6); /* Red border to create the glowing effect */
+  border-radius: 50%;
+  animation: endpulseGlow 2s linear infinite, endpulseGlow 10s linear infinite; /* Add pulsating glow and rotation animations */
+}
+
+/* Style the action buttons on hover */
+.end-btn:hover {
+  background: rgba(255, 0, 0, 0.6);
+}
+
+/* Keyframes for the pulsating glow effect */
+@keyframes endpulseGlow {
+  0% {
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.6);
+    transform: rotate(0deg);
+    z-index: 0;
+  }
+  50% {
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.8), 0 0 50px rgba(255, 0, 0, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.6), 0 0 40px rgba(255, 0, 0, 0.6);
+    transform: rotate(360deg);
+    z-index: 0;
   }
 }
