@@ -12,6 +12,8 @@
 
 /* Style the avatar container */
 .avatar-container  {
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 300px; /* Increase the width to make the avatar bigger */
   height: 300px; /* Increase the height to make the avatar bigger */
@@ -30,16 +32,26 @@
   object-fit: cover;
 
 }
-
+/* Add blur effect to the avatar when video is disabled */
+.avatar.blurred {
+  filter: blur(5px); /* Adjust the blur radius as needed */
+}
 /* Style the "In call with" text */
 .call-text {
-  background: rgba(0, 0, 0, 0.8);
   color: white;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 18px;
+  font-size: 36px; /* Increase the font size to make it big */
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: bolder;
   margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center; /* Vertically center text and icon */
+  justify-content: center;
+}
+
+/* Add a margin to separate the text from the buttons */
+.call-text + .call-actions {
+  margin-top: 20px;
 }
 
 /* Style the call actions container */
@@ -64,6 +76,17 @@
   cursor: pointer;
   transition: background 0.5s ease, border 0.5s ease;
 }
+/* Add hover effect to the microphone button */
+.action-btn.microphone:hover {
+  background: transparent; /* Remove background color */
+  background-color: #007bff; /* Change the text color to match the border color */
+  border: 2px solid #007bff; /* Change the border color */
+}
+/* Add blue background color to the microphone button when muted */
+.action-btn.microphone.muted {
+  background: #007bff; /* Blue background */
+}
+
 /* Adjust the size of the Font Awesome icons */
 .icon {
   font-size: 36px; /* Set the desired size, you can adjust this value */
